@@ -1,0 +1,597 @@
+{
+  "version": 1,
+  "name": "8-Wheeled Robot - Uno + ESP8266 + L298N",
+  "parts": [
+    {
+      "id": "uno1",
+      "type": "uno",
+      "props": {},
+      "x": 320,
+      "y": 440,
+      "rot": 0
+    },
+    {
+      "id": "esp1",
+      "type": "esp8266",
+      "props": {},
+      "x": 880,
+      "y": 80,
+      "rot": 0
+    },
+    {
+      "id": "drv1",
+      "type": "l298n",
+      "props": {
+        "ena_jumper": false,
+        "enb_jumper": false
+      },
+      "x": 880,
+      "y": 620,
+      "rot": 0
+    },
+    {
+      "id": "mL",
+      "type": "dcmotor",
+      "props": {
+        "model": "TT 1:48"
+      },
+      "x": 1220,
+      "y": 620,
+      "rot": 0
+    },
+    {
+      "id": "mR",
+      "type": "dcmotor",
+      "props": {
+        "model": "TT 1:48"
+      },
+      "x": 1460,
+      "y": 620,
+      "rot": 0
+    },
+    {
+      "id": "bat1",
+      "type": "battery",
+      "props": {
+        "kind": "18650x2"
+      },
+      "x": 1700,
+      "y": 620,
+      "rot": 0
+    },
+    {
+      "id": "us1",
+      "type": "hcsr04",
+      "props": {
+        "temperature": 15
+      },
+      "x": 880,
+      "y": 940,
+      "rot": 0
+    },
+    {
+      "id": "srv1",
+      "type": "servo",
+      "props": {},
+      "x": 880,
+      "y": 1240,
+      "rot": 0
+    }
+  ],
+  "wires": [
+    {
+      "id": "w1",
+      "from": "bat1:V+",
+      "to": "drv1:12V",
+      "color": "#e14b4b",
+      "bends": [
+        {
+          "x": 1740,
+          "y": 940
+        },
+        {
+          "x": 920,
+          "y": 940
+        }
+      ]
+    },
+    {
+      "id": "w2",
+      "from": "bat1:V-",
+      "to": "drv1:GND",
+      "color": "#7a8290",
+      "bends": [
+        {
+          "x": 1780,
+          "y": 940
+        },
+        {
+          "x": 940,
+          "y": 940
+        }
+      ]
+    },
+    {
+      "id": "w3",
+      "from": "drv1:GND",
+      "to": "uno1:GND",
+      "color": "#7a8290",
+      "bends": [
+        {
+          "x": 940,
+          "y": 900
+        },
+        {
+          "x": 720,
+          "y": 900
+        },
+        {
+          "x": 720,
+          "y": -40
+        },
+        {
+          "x": 480,
+          "y": -40
+        }
+      ]
+    },
+    {
+      "id": "w4",
+      "from": "uno1:5",
+      "to": "drv1:ENA",
+      "color": "#1f9d55",
+      "bends": [
+        {
+          "x": 680,
+          "y": 40
+        },
+        {
+          "x": 880,
+          "y": 40
+        },
+        {
+          "x": 880,
+          "y": 900
+        },
+        {
+          "x": 1000,
+          "y": 900
+        }
+      ]
+    },
+    {
+      "id": "w5",
+      "from": "uno1:7",
+      "to": "drv1:IN1",
+      "color": "#1f9d55",
+      "bends": [
+        {
+          "x": 640,
+          "y": -160
+        },
+        {
+          "x": 680,
+          "y": -160
+        },
+        {
+          "x": 680,
+          "y": 860
+        },
+        {
+          "x": 1020,
+          "y": 860
+        }
+      ]
+    },
+    {
+      "id": "w6",
+      "from": "uno1:8",
+      "to": "drv1:IN2",
+      "color": "#1f9d55",
+      "bends": [
+        {
+          "x": 600,
+          "y": -80
+        },
+        {
+          "x": 640,
+          "y": -80
+        },
+        {
+          "x": 640,
+          "y": 940
+        },
+        {
+          "x": 1040,
+          "y": 940
+        }
+      ]
+    },
+    {
+      "id": "w7",
+      "from": "uno1:6",
+      "to": "drv1:ENB",
+      "color": "#2f6fed",
+      "bends": [
+        {
+          "x": 660,
+          "y": -120
+        },
+        {
+          "x": 1180,
+          "y": -120
+        },
+        {
+          "x": 1180,
+          "y": 900
+        },
+        {
+          "x": 1100,
+          "y": 900
+        }
+      ]
+    },
+    {
+      "id": "w8",
+      "from": "uno1:12",
+      "to": "drv1:IN3",
+      "color": "#2f6fed",
+      "bends": [
+        {
+          "x": 520,
+          "y": 0
+        },
+        {
+          "x": 880,
+          "y": 0
+        },
+        {
+          "x": 880,
+          "y": 860
+        },
+        {
+          "x": 1060,
+          "y": 860
+        }
+      ]
+    },
+    {
+      "id": "w9",
+      "from": "uno1:13",
+      "to": "drv1:IN4",
+      "color": "#2f6fed",
+      "bends": [
+        {
+          "x": 500,
+          "y": 40
+        },
+        {
+          "x": 1140,
+          "y": 40
+        },
+        {
+          "x": 1140,
+          "y": 860
+        },
+        {
+          "x": 1080,
+          "y": 860
+        }
+      ]
+    },
+    {
+      "id": "w10",
+      "from": "drv1:OUT1",
+      "to": "mL:1",
+      "color": "#1f9d55",
+      "bends": [
+        {
+          "x": 820,
+          "y": 700
+        },
+        {
+          "x": 820,
+          "y": 580
+        },
+        {
+          "x": 1180,
+          "y": 580
+        },
+        {
+          "x": 1180,
+          "y": 660
+        }
+      ]
+    },
+    {
+      "id": "w11",
+      "from": "drv1:OUT2",
+      "to": "mL:2",
+      "color": "#e8a33d",
+      "bends": [
+        {
+          "x": 820,
+          "y": 740
+        },
+        {
+          "x": 820,
+          "y": 620
+        },
+        {
+          "x": 1140,
+          "y": 620
+        },
+        {
+          "x": 1140,
+          "y": 700
+        }
+      ]
+    },
+    {
+      "id": "w12",
+      "from": "drv1:OUT3",
+      "to": "mR:1",
+      "color": "#2f6fed",
+      "bends": [
+        {
+          "x": 1160,
+          "y": 700
+        },
+        {
+          "x": 1160,
+          "y": 740
+        },
+        {
+          "x": 1420,
+          "y": 740
+        },
+        {
+          "x": 1420,
+          "y": 660
+        }
+      ]
+    },
+    {
+      "id": "w13",
+      "from": "drv1:OUT4",
+      "to": "mR:2",
+      "color": "#8a5cf5",
+      "bends": [
+        {
+          "x": 1160,
+          "y": 740
+        },
+        {
+          "x": 1160,
+          "y": 780
+        },
+        {
+          "x": 1380,
+          "y": 780
+        },
+        {
+          "x": 1380,
+          "y": 700
+        }
+      ]
+    },
+    {
+      "id": "w14",
+      "from": "us1:VCC",
+      "to": "uno1:5V",
+      "color": "#e14b4b",
+      "bends": [
+        {
+          "x": 940,
+          "y": 1160
+        },
+        {
+          "x": 480,
+          "y": 1160
+        }
+      ]
+    },
+    {
+      "id": "w15",
+      "from": "us1:GND",
+      "to": "uno1:GNDb",
+      "color": "#7a8290",
+      "bends": [
+        {
+          "x": 1000,
+          "y": 1120
+        },
+        {
+          "x": 500,
+          "y": 1120
+        }
+      ]
+    },
+    {
+      "id": "w16",
+      "from": "us1:TRIG",
+      "to": "uno1:A0",
+      "color": "#e8a33d",
+      "bends": [
+        {
+          "x": 960,
+          "y": 1240
+        },
+        {
+          "x": 580,
+          "y": 1240
+        }
+      ]
+    },
+    {
+      "id": "w17",
+      "from": "us1:ECHO",
+      "to": "uno1:A1",
+      "color": "#e8a33d",
+      "bends": [
+        {
+          "x": 980,
+          "y": 1200
+        },
+        {
+          "x": 600,
+          "y": 1200
+        }
+      ]
+    },
+    {
+      "id": "w18",
+      "from": "srv1:VCC",
+      "to": "uno1:5V",
+      "color": "#e14b4b",
+      "bends": [
+        {
+          "x": 840,
+          "y": 1320
+        },
+        {
+          "x": 840,
+          "y": 1080
+        },
+        {
+          "x": 480,
+          "y": 1080
+        }
+      ]
+    },
+    {
+      "id": "w19",
+      "from": "srv1:GND",
+      "to": "uno1:GNDb",
+      "color": "#7a8290",
+      "bends": [
+        {
+          "x": 800,
+          "y": 1340
+        },
+        {
+          "x": 800,
+          "y": 1120
+        },
+        {
+          "x": 500,
+          "y": 1120
+        }
+      ]
+    },
+    {
+      "id": "w20",
+      "from": "srv1:PWM",
+      "to": "uno1:10",
+      "color": "#e8a33d",
+      "bends": [
+        {
+          "x": 760,
+          "y": 1300
+        },
+        {
+          "x": 760,
+          "y": 120
+        },
+        {
+          "x": 560,
+          "y": 120
+        }
+      ]
+    },
+    {
+      "id": "w21",
+      "from": "esp1:TX",
+      "to": "uno1:0",
+      "color": "#e8a33d",
+      "bends": [
+        {
+          "x": 1220,
+          "y": 380
+        },
+        {
+          "x": 1220,
+          "y": 160
+        },
+        {
+          "x": 780,
+          "y": 160
+        }
+      ]
+    },
+    {
+      "id": "w22",
+      "from": "esp1:RX",
+      "to": "uno1:1",
+      "color": "#1f9d55",
+      "bends": [
+        {
+          "x": 1260,
+          "y": 360
+        },
+        {
+          "x": 1260,
+          "y": 80
+        },
+        {
+          "x": 760,
+          "y": 80
+        }
+      ]
+    },
+    {
+      "id": "w23",
+      "from": "esp1:GND",
+      "to": "uno1:GNDc",
+      "color": "#7a8290",
+      "bends": [
+        {
+          "x": 840,
+          "y": 320
+        },
+        {
+          "x": 840,
+          "y": 920
+        },
+        {
+          "x": 520,
+          "y": 920
+        }
+      ]
+    },
+    {
+      "id": "w24",
+      "from": "esp1:VIN",
+      "to": "uno1:5V",
+      "color": "#e14b4b",
+      "bends": [
+        {
+          "x": 800,
+          "y": 420
+        },
+        {
+          "x": 800,
+          "y": 960
+        },
+        {
+          "x": 480,
+          "y": 960
+        }
+      ]
+    }
+  ],
+  "projects": {
+    "uno1": {
+      "files": {
+        "sketch.ino": "// 8-Wheeled Robot - Arduino Uno (same logic as robot_test.ino)\n// Receives commands from the ESP8266 on Serial: F/B/L/R/S + speed, A<angle>, D\n#include <Servo.h>\n\nconst int ENA = 5, IN1 = 7, IN2 = 8;    // left motor\nconst int ENB = 6, IN3 = 12, IN4 = 13;  // right motor\nconst int SERVO_PIN = 10, TRIG = A0, ECHO = A1;\nconst int STOP_DISTANCE_CM = 20;\n\nServo scanServo;\nchar currentDir = 'S';\nint speedValue = 150;\nString cmd = \"\";\nunsigned long lastCharTime = 0, lastDistCheck = 0;\n\nvoid setSide(int en, int inA, int inB, int dir, int spd) {\n  digitalWrite(inA, dir == 1 ? HIGH : LOW);\n  digitalWrite(inB, dir == -1 ? HIGH : LOW);\n  analogWrite(en, dir == 0 ? 0 : spd);\n}\n\nvoid drive(char d) {\n  switch (d) {\n    case 'F': setSide(ENA, IN1, IN2, 1, speedValue);  setSide(ENB, IN3, IN4, 1, speedValue);  break;\n    case 'B': setSide(ENA, IN1, IN2, -1, speedValue); setSide(ENB, IN3, IN4, -1, speedValue); break;\n    case 'L': setSide(ENA, IN1, IN2, -1, speedValue); setSide(ENB, IN3, IN4, 1, speedValue);  break;\n    case 'R': setSide(ENA, IN1, IN2, 1, speedValue);  setSide(ENB, IN3, IN4, -1, speedValue); break;\n    default:  setSide(ENA, IN1, IN2, 0, 0); setSide(ENB, IN3, IN4, 0, 0); d = 'S'; break;\n  }\n  currentDir = d;\n}\n\nlong readDistanceCm() {\n  digitalWrite(TRIG, LOW); delayMicroseconds(2);\n  digitalWrite(TRIG, HIGH); delayMicroseconds(10);\n  digitalWrite(TRIG, LOW);\n  unsigned long us = pulseIn(ECHO, HIGH, 30000UL);\n  if (us == 0) return 999;\n  return us / 58;\n}\n\nvoid handleCommand(String c) {\n  c.trim();\n  if (c.length() == 0) return;\n  char letter = toupper(c.charAt(0));\n  int value = (c.length() > 1) ? c.substring(1).toInt() : -1;\n  if (letter == 'A') {\n    if (value < 0) value = 90;\n    scanServo.write(constrain(value, 0, 180));\n    return;\n  }\n  if (letter == 'D') {\n    Serial.print(F(\"Distance: \")); Serial.println(readDistanceCm());\n    return;\n  }\n  if (letter == 'F' || letter == 'B' || letter == 'L' || letter == 'R' || letter == 'S') {\n    if (value >= 0) speedValue = constrain(value, 0, 255);\n    drive(letter);\n    Serial.print(F(\"Direction: \")); Serial.print(currentDir);\n    Serial.print(F(\"  Speed: \")); Serial.println(speedValue);\n  }\n}\n\nvoid setup() {\n  pinMode(ENA, OUTPUT); pinMode(IN1, OUTPUT); pinMode(IN2, OUTPUT);\n  pinMode(ENB, OUTPUT); pinMode(IN3, OUTPUT); pinMode(IN4, OUTPUT);\n  pinMode(TRIG, OUTPUT); pinMode(ECHO, INPUT);\n  scanServo.attach(SERVO_PIN);\n  scanServo.write(90);\n  Serial.begin(9600);   // same baud as the ESP8266 bridge\n  drive('S');\n  Serial.println(F(\"Uno ready\"));\n}\n\nvoid loop() {\n  while (Serial.available()) {\n    char ch = Serial.read();\n    lastCharTime = millis();\n    if (ch == '\\n' || ch == '\\r') { handleCommand(cmd); cmd = \"\"; }\n    else cmd += ch;\n  }\n  if (cmd.length() > 0 && millis() - lastCharTime > 100) { handleCommand(cmd); cmd = \"\"; }\n\n  if (millis() - lastDistCheck > 100) {\n    lastDistCheck = millis();\n    if (currentDir == 'F' && readDistanceCm() < STOP_DISTANCE_CM) {\n      drive('S');\n      Serial.println(F(\"Obstacle - stopped\"));\n    }\n  }\n}\n"
+      },
+      "main": "sketch.ino"
+    },
+    "esp1": {
+      "files": {
+        "sketch.ino": "/*\n  8-Wheeled Robot - ESP8266 Wi-Fi bridge\n  Phone/app --Wi-Fi--> ESP8266 --Serial \"F180\"--> Arduino Uno\n  DEMO = true: sends a test sequence to the Uno at start (for the simulator).\n  Set DEMO = false on the real robot.\n*/\n#include <ESP8266WiFi.h>\n#include <ESP8266WebServer.h>\n\nconst char* AP_SSID = \"Robot8W\";\nconst char* AP_PASS = \"robot1234\";\nconst bool DEMO = true;\n\nESP8266WebServer server(80);\n\nconst char PAGE[] PROGMEM = R\"rawliteral(\n<!DOCTYPE html><html><head><meta name=\"viewport\" content=\"width=device-width,initial-scale=1\">\n<title>Robot8W</title>\n<style>\nbody{font-family:sans-serif;text-align:center;background:#1e1e2e;color:#fff;margin:0;padding:16px}\n.pad{display:grid;grid-template-columns:repeat(3,90px);gap:10px;justify-content:center;margin:20px 0}\nbutton{height:90px;font-size:32px;border:0;border-radius:14px;background:#3b82f6;color:#fff;touch-action:none}\n#stop{background:#ef4444} input{width:80%}\n</style></head><body>\n<h2>8-Wheeled Robot</h2>\n<div class=\"pad\">\n<span></span><button data-c=\"F\">&#9650;</button><span></span>\n<button data-c=\"L\">&#9664;</button><button id=\"stop\" data-c=\"S\">&#9632;</button><button data-c=\"R\">&#9654;</button>\n<span></span><button data-c=\"B\">&#9660;</button><span></span>\n</div>\n<p>Speed: <b id=\"v\">150</b></p>\n<input type=\"range\" id=\"spd\" min=\"0\" max=\"255\" value=\"150\">\n<p id=\"st\">Ready</p>\n<script>\nconst spd=document.getElementById('spd'),v=document.getElementById('v'),st=document.getElementById('st');\nspd.oninput=()=>v.textContent=spd.value;\nfunction send(c){fetch('/'+c+'?s='+spd.value).then(r=>r.text()).then(t=>st.textContent=t).catch(()=>st.textContent='No connection');}\ndocument.querySelectorAll('button').forEach(b=>{\n  b.onpointerdown=()=>send(b.dataset.c);\n  b.onpointerup=b.onpointerleave=()=>{if(b.dataset.c!=='S')send('S');};\n});\nconst keys={ArrowUp:'F',w:'F',ArrowDown:'B',s:'B',ArrowLeft:'L',a:'L',ArrowRight:'R',d:'R',' ':'S'};\nlet down=null;\ndocument.onkeydown=e=>{const c=keys[e.key];if(c&&down!==c){down=c;send(c);}};\ndocument.onkeyup=e=>{if(keys[e.key]){down=null;send('S');}};\n</script></body></html>\n)rawliteral\";\n\nvoid sendToUno(const String& cmd) {\n  Serial.print(cmd);\n  Serial.print('\\n');\n}\n\nvoid handleMove(char c) {\n  String cmd = String(c) + server.arg(\"s\");\n  sendToUno(cmd);\n  server.send(200, \"text/plain\", \"Sent \" + cmd);\n}\n\nstruct Step { const char* cmd; unsigned long ms; };\nStep demo[] = {\n  {\"F200\", 3000}, {\"S\", 1000}, {\"B150\", 3000}, {\"S\", 1000},\n  {\"L180\", 2000}, {\"R180\", 2000}, {\"F80\", 3000}, {\"S\", 0}\n};\nconst int DEMO_STEPS = sizeof(demo) / sizeof(demo[0]);\nint demoIndex = 0;\nunsigned long demoNext = 0;\n\nvoid setup() {\n  Serial.begin(9600);\n  WiFi.mode(WIFI_AP);\n  WiFi.softAP(AP_SSID, AP_PASS);\n  server.on(\"/\", []() { server.send_P(200, \"text/html\", PAGE); });\n  server.on(\"/F\", []() { handleMove('F'); });\n  server.on(\"/B\", []() { handleMove('B'); });\n  server.on(\"/L\", []() { handleMove('L'); });\n  server.on(\"/R\", []() { handleMove('R'); });\n  server.on(\"/S\", []() { handleMove('S'); });\n  server.begin();\n  demoNext = millis() + 2000;\n}\n\nvoid loop() {\n  server.handleClient();\n  if (DEMO && demoIndex < DEMO_STEPS && millis() >= demoNext) {\n    sendToUno(demo[demoIndex].cmd);\n    demoNext = millis() + demo[demoIndex].ms;\n    demoIndex++;\n  }\n}"
+      },
+      "main": "sketch.ino"
+    }
+  }
+}
